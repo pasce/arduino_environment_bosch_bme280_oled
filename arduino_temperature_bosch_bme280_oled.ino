@@ -21,7 +21,7 @@
 Adafruit_SSD1306 display = Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 // 1013.25 hPa: Normalized sea level pressure (760 mm Hg)
-#define SEALEVELPRESSURE_HPA (1013.25) //(1015.53) //(1014.9)//(1014.7)//(1013.25)
+#define SEALEVELPRESSURE_HPA (1013.25); //(1015.53) //(1014.9)//(1014.7)//(1013.25)
 
 Adafruit_BME280 bme;
 
