@@ -21,7 +21,7 @@
 Adafruit_SSD1306 display = Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 // 1013.25 hPa: Normalized sea level pressure (760 mm Hg)
-#define SEALEVELPRESSURE_HPA (1013.25) //(1015.53) //(1014.9)//(1014.7)//(1013.25)
+#define SEALEVELPRESSURE_HPA (1013.25)
 
 Adafruit_BME280 bme;
 
@@ -63,7 +63,7 @@ void setup(void)
                     Adafruit_BME280::SAMPLING_X1, // humidity
                     Adafruit_BME280::FILTER_OFF   );
                       
-  // suggested rate is 1/60Hz (1m)
+  // Rate is 1/60Hz (1m)
   delayTime = 60000;
   
   bme_temp->printSensorDetails();
@@ -81,7 +81,7 @@ void loop(void)
 
   float temp = bme.readTemperature();
   float pressure = bme.readPressure() / 100.0F;
-  float height = bme.readAltitude(SEALEVELPRESSURE_HPA);
+  float altitude = bme.readAltitude(SEALEVELPRESSURE_HPA);
   float humidity = bme.readHumidity();
 
   Serial.print(F("Sensor B: "));
@@ -89,15 +89,15 @@ void loop(void)
   Serial.println(F("°C"));
   
   Serial.println();
-  Serial.print(F("Druck = "));
+  Serial.print(F("Pressure = "));
   Serial.print(pressure); //Readings are not normalized to sea-level. TODO: Use formular
   Serial.println(F("hPa"));
 
-  Serial.print(F("Ungefähre Höhe = "));
-  Serial.print(height);
+  Serial.print(F("Approx. Altitude = "));
+  Serial.print(altitude);
   Serial.println(F("m"));
 
-  Serial.print(F("Luft = "));
+  Serial.print(F("Humidity = "));
   Serial.print(humidity);
   Serial.println(F("%"));
   Serial.println();
