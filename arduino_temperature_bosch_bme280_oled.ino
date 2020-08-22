@@ -90,7 +90,7 @@ void loop(void)
   
   Serial.println();
   Serial.print(F("Pressure = "));
-  Serial.print(pressure); //Readings are not normalized to sea-level. TODO: Use formular
+  Serial.print(pressure); //Readings are not normalized to sea-level.
   Serial.println(F("hPa"));
 
   Serial.print(F("Approx. Altitude = "));
